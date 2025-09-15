@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUKANG BANGUNAN - Portofolio Perusahaan Konstruksi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-active {
+            color: #d4af37; /* Gold accent */
+        }
+        .bg-nav {
+            background-color: rgba(0, 0, 139, 0.9); /* Transparent navy */
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 139, 0.5); /* Transparent navy overlay */
+        }
+        .gold-shadow {
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5);
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+        .fade-in.in-view {
+            opacity: 1;
+        }
+        .slide-up {
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.6s ease-out;
+        }
+        .slide-up.in-view {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            /* Tambahan CSS Responsif */
+@media (max-width: 768px) {
+    /* Hero text agar tidak terlalu besar di HP */
+    #home h1 {
+        font-size: 2rem;
+    }
+    #home p {
+        font-size: 1rem;
+    }
+
+    /* Navbar mobile lebih rapat */
+    #mobile-nav {
+        background-color: rgba(0, 0, 139, 0.95);
+        padding: 10px;
+        border-radius: 0 0 10px 10px;
+    }
+    #mobile-nav a {
+        color: white;
+        font-weight: 500;
+    }
+
+    /* Grid service & portfolio biar 1 kolom */
+    #services .grid,
+    #portfolio .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Section team biar rapi */
+    #team .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Contact form biar stack */
+    #contact .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Footer biar kolom jadi 1 */
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+    }
+}
+/* Logo Responsive */
+#logo img {
+    max-width: 150px;   /* biar ga kebesaran */
+    width: 100%;        /* biar ikut menyesuaikan */
+    height: auto;       /* biar proporsional */
+    object-fit: contain; 
+}
+
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-nav text-white fixed top-0 w-full z-50 shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center"> <img src="logo.PNG.png" alt="logo" width="160">
+            <h1 class="text-2xl font-bold">TUKANG BANGUNAN</h1>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#hero" class="hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+                <li><a href="#services" class="hover:text-yellow-400 transition">Services</a></li>
+                <li><a href="#portfolio" class="hover:text-yellow-400 transition">Portfolio</a></li>
+                <li><a href="#team" class="hover:text-yellow-400 transition">Team</a></li>
+                <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
+            </ul>
+            <button id="menu-toggle" class="md:hidden text-2xl">&times;</button>
+        </nav>
+        <ul id="mobile-nav" class="hidden md:hidden flex-col space-y-4 pb-4 px-4">
+            <li><a href="#home" class="block py-2">Home</a></li>
+            <li><a href="#about" class="block py-2">About</a></li>
+            <li><a href="#services" class="block py-2">Services</a></li>
+            <li><a href="#portfolio" class="block py-2">Portfolio</a></li>
+            <li><a href="#team" class="block py-2">Team</a></li>
+            <li><a href="#contact" class="block py-2">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2aa2986e-a45e-470d-a95b-c1ddb3107838.png');">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative text-center text-white px-4 fade-in">
+           <h1 ><center><img src="logo.PNG.png" alt="logo" width="300"></center></h1> 
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">TUKANG BANGUNAN</h1>
+            <p class="text-xl md:text-2xl mb-8">"Membangun dengan Kualitas, Menghubungkan Masa Depan"</p>
+            <a href="#portfolio" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg shadow-lg transition transform hover:scale-105">Lihat Portofolio Kami</a>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-20 bg-white slide-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold text-center mb-8 text-nav">Tentang Kami</h2>
+            <div class="max-w-4xl mx-auto text-justify leading-relaxed">
+                <p class="mb-4">TUKANG BANGUNAN adalah perusahaan konstruksi yang berbasis di Kabupaten Fakfak, Papua Barat. Kami telah berpengalaman dalam membangun infrastruktur berkualitas tinggi, dengan fokus pada proyek di wilayah Papua Barat. Komitmen kami adalah menghasilkan bangunan yang tahan lama, tepat waktu, dan ramah lingkungan.</p>
+                <p class="mb-4">Didirikan oleh para ahli teknik yang berdedikasi, kami percaya pada inovasi dan penggunaan teknologi terkini untuk mendukung pembangunan berkelanjutan.</p>
+                <div class="mt-8">
+                    <h3 class="text-xl font-medium mb-4">Pimpinan Perusahaan:</h3>
+                    <p><strong>CEO:</strong> Syamsul A. Rumalolas, ST</p>
+                    <p><strong>Founder:</strong> Syukur A. Rumalolas, ST</p>
+                </div>
+                <div class="mt-8">
+                    <h3 class="text-xl font-medium mb-4">Visi & Misi:</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Visi: Menjadi perusahaan konstruksi terdepan di Papua .</li>
+                        <li>Misi: Menyediakan layanan konstruksi berkualitas untuk membangun infrastruktur yang berkelanjutan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-gray-100 slide-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold text-center mb-8 text-nav">Layanan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-4 text-3xl">
+                        <!-- Simple SVG Icon for Road -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Jalan</h3>
+                    <p>Kami membangun jalan dengan standar tinggi untuk aksesibilitas optimal.</p>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-4 text-3xl">
+                        <!-- Simple SVG Icon for Fence -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V9a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Pagar Jalan</h3>
+                    <p>Pagar yang kuat dan estetis untuk proteksi jalan.</p>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-4 text-3xl">
+                        <!-- Simple SVG Icon for Bridge -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                            <circle cx="7" cy="7" r="4" />
+                            <path d="M21 14l-3 3m0 0l-3-3m3 3V12a5 5 0 00-10 0v8" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Jembatan</h3>
+                    <p>Jembatan kokoh untuk menghubungkan wilayah.</p>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-4 text-3xl">
+                        <!-- Simple SVG Icon for Building -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Gedung</h3>
+                    <p>Konstruksi gedung modern dan fungsional.</p>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-4 text-3xl">
+                        <!-- Simple SVG Icon for School -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sekolah</h3>
+                    <p>Bangunan sekolah yang aman dan nyaman.</p>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-4 text-3xl">
+                        <!-- Simple SVG Icon for House -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h7a1 1 0 001-1V10m4 0v10a1 1 0 01-1 1h-7a1 1 0 01-1-1V10m4 0V9a1 1 0 011-1h1a1 1 0 111 0V5m-4 5l1 5m4-5l-1 5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Rumah</h3>
+                    <p>Rumah impian dengan desain dan bahan terbaik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 bg-white slide-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    <!-- Card 1: Infrastruktur Jalan -->
+    <div class="card-hover bg-gray-100 p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5a5bf9c5-b98a-4617-9b62-95e5cce5c669.png" 
+                 alt="Blueprint drawing of a modern road infrastructure project" 
+                 class="w-full h-48 object-cover rounded" />
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Infrastruktur Jalan</h3>
+        <p>Proyek pembangunan jalan utama dengan fokus aksesibilitas.</p>
+        
+        <!-- Tombol diganti dengan link -->
+        <a href="jembatann.html" 
+           class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+           Lihat Detail
+        </a>
+    </div>
+
+    <!-- Card 2: Jembatan -->
+    <div class="card-hover bg-gray-100 p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dfc018e8-5ba8-4226-afee-dbd35aa40eaa.png" 
+                 alt="Architectural render of a bridge" 
+                 class="w-full h-48 object-cover rounded" />
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Jembatan</h3>
+        <p>Jembatan strategis untuk konektivitas wilayah.</p>
+        
+        <!-- Tombol diganti dengan link -->
+        <a href="jalan.html" 
+           class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+           Lihat Detail
+        </a>
+    </div>
+
+    <!-- Card 3: Gedung Sekolah -->
+    <div class="card-hover bg-gray-100 p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15d722df-75ae-47fd-b032-3be0b3a49dcb.png" 
+                 alt="3D illustration of a school building" 
+                 class="w-full h-48 object-cover rounded" />
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Gedung Sekolah</h3>
+        <p>Sekolah modern untuk pendidikan berkualitas.</p>
+        
+        <!-- Tombol diganti dengan link -->
+        <a href="detail-sekolah.html" 
+           class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+           Lihat Detail
+        </a>
+    </div>
+
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-20 bg-gray-100 slide-up">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- CEO -->
+ <!-- Team -->
+<section id="team" class="py-20 bg-gray-100 slide-up">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-semibold text-center mb-12 text-nav">Team Kami</h2>
+
+    <!-- CEO & Founder -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- CEO -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <h3 class="text-xl font-semibold">CEO - Syamsul A. Rumalolas, ST</h3>
+        <p>Pemimpin utama yang memimpin visi perusahaan.</p>
+      </div>
+
+      <!-- Founder -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <h3 class="text-xl font-semibold">Founder - Syukur A. Rumalolas, ST</h3>
+        <p>Kontributor kunci dalam pendirian dan operasi.</p>
+      </div>
+    </div>
+
+    <!-- Struktur Organisasi -->
+    <div class="mt-16 flex flex-col items-center">
+      <!-- Level Atas: Keuangan, Team Teknis, HRD -->
+      <div class="flex flex-wrap justify-center gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-lg text-center w-64">
+          <h3 class="text-xl font-bold">Keuangan</h3>
+          <p class="text-gray-600 leading-relaxed text-sm mt-2">
+            Mengelola anggaran, laporan keuangan, serta pengendalian biaya proyek.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-lg text-center w-64">
+          <h3 class="text-xl font-bold">Team Teknis</h3>
+          <p class="text-gray-600 leading-relaxed text-sm mt-2">
+            Fokus pada konstruksi lapangan, memastikan proyek sesuai spesifikasi.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-lg text-center w-64">
+          <h3 class="text-xl font-bold">HRD</h3>
+          <p class="text-gray-600 leading-relaxed text-sm mt-2">
+            Mengelola sumber daya manusia, rekrutmen, dan pengembangan karyawan.
+          </p>
+        </div>
+      </div>
+
+      <!-- Garis penghubung -->
+      <div class="w-1 h-10 bg-gray-400 my-6"></div>
+
+      <!-- Level Bawah: Team Administrasi, Team Teknis Lapangan -->
+      <div class="flex flex-wrap justify-center gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-lg text-center w-64">
+          <h3 class="text-xl font-bold">Team Administrasi</h3>
+          <p class="text-gray-600 leading-relaxed text-sm mt-2">
+            Mengelola operasional kantor dan dokumentasi proyek.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-lg text-center w-64">
+          <h3 class="text-xl font-bold">Team Teknis Lapangan</h3>
+          <p class="text-gray-600 leading-relaxed text-sm mt-2">
+            Menangani pekerjaan teknis langsung di lokasi proyek.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-white slide-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold text-center mb-8 text-nav">Kontak</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <p class="mb-4"><strong>Alamat:</strong> Kabupaten Fakfak, Papua Barat</p>
+                    <p class="mb-4"><strong>Nomor Telepon:</strong> +62-82214369049</p>
+                    <p class="mb-4"><strong>Email:</strong> info@tukangbangunan.id</p>
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/272a26b7-d6e5-465c-9059-5c01d01d7734.png" alt="Embedded map view of Kabupaten Fakfak location with roads and landmarks in Papua Barat region for easy navigation" class="w-full rounded shadow" />
+                    </div>
+                </div>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Nama" class="w-full p-3 border rounded" required>
+                    <input type="email" placeholder="Email" class="w-full p-3 border rounded" required>
+                    <textarea placeholder="Pesan" rows="5" class="w-full p-3 border rounded" required></textarea>
+                    <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:scale-105">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-nav text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">TUKANG BANGUNAN</h3>
+                    <p>Membangun dengan Quality.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Tautan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-yellow-400 transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+                        <li><a href="#services" class="hover:text-yellow-400 transition">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-yellow-400 transition">Portfolio</a></li>
+                        <li><a href="#team" class="hover:text-yellow-400 transition">Team</a></li>
+                        <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Sosial Media</h3>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-2xl hover:text-yellow-400 transition">[Icon Placeholder]</a></li>
+                        <li><a href="#" class="text-2xl hover:text-yellow-400 transition">[Icon Placeholder]</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <!-- Simple SVG Crane -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 inline mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+                © 2023 TUKANG BANGUNAN. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Simple Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const nav = document.getElementById('mobile-nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+            } else {
+                nav.classList.add('hidden');
+            }
+        });
+
+        // Simple Scroll Animation using Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll for Anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Validation (Basic)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const inputs = this.querySelectorAll('input[required], textarea[required]');
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    e.preventDefault();
+                    alert('Semua field harus diisi.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
